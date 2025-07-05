@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prototype Chaining with Color and Instance Check</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .person {
+      color: darkgreen;
+    }
+    .student {
+      color: darkblue;
+    }
+    .info {
+      color: gray;
+      font-style: italic;
+    }
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      color: maroon;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">Prototype Chaining with Color and Instance Checks</div>
+  <div id="output"></div>
+
+  <script>
+    // Helper to print messages with color
+    function print(msg, cls) {
+      const el = document.createElement('div');
+      el.className = cls;
+      el.textContent = msg;
+      document.getElementById('output').appendChild(el);
+    }
+
+    // Parent constructor
+    function Person(name) {
+      this.name = name;
+    }
+
+    Person.prototype.introduce = function() {
+      print("Hi, I'm " + this.name + " (from Person)", 'person');
+    };
+
+    // Child constructor
+    function Student(name, course) {
+      Person.call(this, name); // Call parent
+      this.course = course;
+    }
+
+    // Prototype chaining
+    Student.prototype = Object.create(Person.prototype);
+    Student.prototype.constructor = Student;
+
+    // Add child method
+    Student.prototype.study = function() {
+      print(this.name + " is studying " + this.course + " (from Student)", 'student');
+    };
+
+    // Create instance
+    const s1 = new Student("Sarvesh", "Web Development");
+
+    // Method calls (prototype chain)
+    s1.introduce(); // from Person
+    s1.study();     // from Student
+
+    // Instance checks
+    print("Is s1 an instance of Student? " + (s1 instanceof Student), 'info');
+    print("Is s1 an instance of Person? " + (s1 instanceof Person), 'info');
+    print("Is s1 an instance of Object? " + (s1 instanceof Object), 'info');
+
+
+  </script>
+</body>
+</html>

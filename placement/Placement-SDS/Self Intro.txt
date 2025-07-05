@@ -1,0 +1,5 @@
+"Hello, I’m Sarvesh Sharma, an IT student at Ramdeobaba College of Engineering and Management, Nagpur.
+I’ve built projects like a Virtual Event Ticketing System and an AI-enabled Job Portal.
+I’m passionate about Cloud Computing and continuously explore platforms like AWS to enhance my technical
+skills."
+

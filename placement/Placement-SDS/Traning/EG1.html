@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript Hoisting And Lexical Scope Example</h1>
+    <h3>
+       
+        if(true){ // non Lexical scope
+            var x = 100; // hoisting 
+        }
+        console.log(x); // 100, because 'var' is function-scoped or globally scoped
+ 
+    </h3>
+    <script type = "text/javascript">
+        if(true){ // non Lexical scope
+            var x = 100; // hoisting 
+        }
+        console.log(x); // 100, because 'var' is function-scoped or globally scoped
+    </script>
+</body>
+</html>
